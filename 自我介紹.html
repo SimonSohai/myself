@@ -3,6 +3,9 @@
     <meta charset="utf-8" >
     <title>簡短自我介紹</title>
 	<style type="text/css">
+	:root{
+    --hoverColor: rgb(239, 56, 126);
+}
 		*{
 			margin: 0;
 			padding: 0;
@@ -17,7 +20,10 @@
 			position: sticky;
         		top: 0px;
 			height: 50px;
-			background-color: #898989;
+		}
+		img{
+			height: auto;
+          	max-width: 100%;
 		}
 		.logo{
 			width: 60px;
@@ -39,6 +45,7 @@
 			position: absolute;
 			top: 5px;
 			right: 10px;
+			border-radius: 0.5rem;
 		}
 		.menu_btn span{
 			opacity: 0;
@@ -61,13 +68,14 @@
 						0px -8px 0px #ccc;
 		}
 		nav{
-			width: 80%;
-			height: calc(100vh - 50px);
+			width: 40%;
+			height: 274px;
 			background-color: rgba(237, 148, 148, 0.941);
 			position: absolute;
 			top: 50px;
 			right: -100%;
 			transition: .8s;
+			border-radius: 0.5rem;
 		}
 		nav a:hover {
         background-color: white;
@@ -79,16 +87,25 @@
 			color:white ;
 			padding: 10px 20px;
 			border-bottom: 1px solid white;
+      background-color: palevioletred;
+			border-radius: 0.5rem;
+			border: 2px solid var(--hoverColor);
 		}
 		#menu_control:checked ~ .header nav{
 			right: 0;
 		}
 		@media screen and (min-width:768px){
 			.menu_btn{display: none;}
+			body { 
+            width: 30%;
+            margin: 0 auto;}
+        main {
+            height: auto;
+          	max-width: 100%;
+        }
 			.header{
 				display: flex;
 				justify-content: space-between;
-				background-color: rgba(237, 148, 148, 0.941);
 				align-items: center;
 			}
 			nav{
@@ -105,40 +122,55 @@
 			}
 		}
 		body {
-            width: 100%; 
-            min-width: 600px; 
-            max-width: 960px;		
-            background: beige;
+            width: 100%; 	
             margin: 0 auto;
         }	
         header {
             display:flex;justify-content: center;align-items: center;
             width: 100%;
             height: 80px;	  
-            background: #eaeaea;		
+            		
         }	
         main {
-            width: 51%;
+            width: 49%;
             height: 400px;
-            background: deepskyblue;
             float: left;	
         }
         aside {
-            width: 48%;
+            width: 49%;
             height: 400px;		
-            background: orange;
             float: right;	
         }
-        footer {
-            width: 100%;
-            background: #eaeaea;		
-            clear: both;        
-        }
-	.happy{
+		#background{
+			width: 100%;
+			height: 100%;
+		}
+		.A{
+			width: 100%;
+			min-width: 600px;
+			max-width: 960px;
+			margin: 0 auto;
+			min-height: 100vh;
+			text-align: center;
+			font-weight: bold;
+			justify-content: center;
+			flex-direction: row;
+			align-content: center;
+			flex-wrap: wrap;
+		}
+		.B{
+			width: 100%;
+			min-width: 600px;
+			max-width: 960px;
+			margin: 0 auto;
+		}
+    .happy{
           width: 800px;
           margin: 50px auto;
           border:solid 1px gray;
+          background-color: #ccc;
           overflow: hidden; 
+          border-radius: 0.5rem;
         }
         .bdcard{
           width: 300px;
@@ -156,8 +188,10 @@
         }
 	</style>
 </head>
-<body>
-	<header><h1 id="seven">個人字介</h1></header>
+<body id="background">
+
+  <div class="B">
+	<header><h1 style="color: white;">個人字介</h1></header>
 	<input type="checkbox" name="" id="menu_control">
 
 	<div class="header">
@@ -188,5 +222,22 @@
         </p></h2>
       </div>
     </div>
+  </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
+        <script>
+VANTA.GLOBE({
+  el: "#background",
+  mouseControls: true,
+  touchControls: true,
+  gyroControls: false,
+  minHeight: 200.00,
+  minWidth: 200.00,
+  scale: 1.00,
+  scaleMobile: 1.00,
+  color: 0xfcfcfc,
+  backgroundColor: 0x449393
+})
+        </script>
   </body>
 </html>
